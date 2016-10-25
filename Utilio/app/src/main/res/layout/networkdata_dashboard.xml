@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+
+
+    <ImageView
+        android:layout_width="60dip"
+        android:layout_height="60dip"
+        android:src="@drawable/ic_dataused"
+        android:tint="#F44336"
+        android:layout_gravity="center_horizontal"/>
+
+    <TextView
+        android:id="@+id/DataUsed"
+        android:layout_width="wrap_content"
+        android:layout_height="?attr/actionBarSize"
+        android:layout_gravity="center"
+        android:text="Data Used...."
+        android:textSize="33sp"
+        android:textColor="#757575"
+        android:layout_marginBottom="25dip"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dip"
+        android:layout_gravity="bottom"
+        android:background="#BDBDBD"
+        android:layout_marginTop="15dip"
+        />
+
+    <TextView
+        android:id="@+id/tv_title_DataUsed"
+        android:layout_width="wrap_content"
+        android:layout_height="?attr/actionBarSize"
+        android:layout_gravity="center|bottom"
+        android:gravity="center"
+        android:text="Total Data Used"
+        android:textSize="18sp"
+        android:textColor="#757575"/>
+
+</LinearLayout>
