@@ -134,12 +134,22 @@ public class DataProvider extends ContentProvider{
                 try {
                     for(ContentValues value : values){
 
-                        long _id = sqLiteDatabase.insert(DataContract.ApplicationData.TABLE_NAME)
+                        long _id = sqLiteDatabase.insert(DataContract.ApplicationData.TABLE_NAME, null, value);
+                        if (_id != -1) {
+                            returnCount++;
+                        }
                     }
-
+                  sqLiteDatabase.setTransactionSuccessful();
+                }finally {
+                    sqLiteDatabase.endTransaction();
                 }
+
+                getContext().getContentResolver().notifyChange(uri, null);
+                return returnCount;
+            default:
+
+                return super.bulkInsert(uri, values);
         }
 
-        return super.bulkInsert(uri, values);
     }
 }
