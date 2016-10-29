@@ -45,7 +45,7 @@ public class DataProvider extends ContentProvider{
     @Override
     public Cursor query(Uri uri, String[] projection, String selection, String[] selectionArgs, String sortOrder) {
 
-        Cursor retCursor;
+        Cursor retCursor = null;
 
         //Here is the switch statement that, given a URI, will determine what kind of request it is,
         //and query the database accordingly
@@ -68,7 +68,7 @@ public class DataProvider extends ContentProvider{
             }
 
         }
-
+        retCursor.setNotificationUri(getContext().getContentResolver(), uri);
         return retCursor;
     }
 
@@ -85,13 +85,28 @@ public class DataProvider extends ContentProvider{
         final SQLiteDatabase db = dataDbHelper.getWritableDatabase();
         final int match = mUriMatcher.match(uri);
 
-        Uri returnUri;
+        Uri returnUri = null;
 
         switch(match){
+
+            case APPDATA: {
+
+                long _id = db.insert(DataContract.ApplicationData.TABLE_NAME, null, contentValues);
+                if(_id>0){
+
+                    returnUri = DataContract.ApplicationData.buildApplicationUri(_id);
+                   System.out.println("Inserted "+ returnUri);
+                }
+                else
+                {throw new android.database.SQLException("Failed to insert row into" +uri); }
+
+                break;
+            }
             
         }
+        getContext().getContentResolver().notifyChange(uri, null);
 
-        return null;
+        return returnUri;
     }
 
     @Override
@@ -102,5 +117,29 @@ public class DataProvider extends ContentProvider{
     @Override
     public int update(Uri uri, ContentValues contentValues, String s, String[] strings) {
         return 0;
+    }
+
+    @Override
+    public int bulkInsert(Uri uri, ContentValues[] values) {
+
+        final SQLiteDatabase sqLiteDatabase = dataDbHelper.getWritableDatabase();
+
+        final int match = mUriMatcher.match(uri);
+
+        switch (match){
+            case APPDATA :
+                sqLiteDatabase.beginTransaction();
+                int returnCount = 0;
+
+                try {
+                    for(ContentValues value : values){
+
+                        long _id = sqLiteDatabase.insert(DataContract.ApplicationData.TABLE_NAME)
+                    }
+
+                }
+        }
+
+        return super.bulkInsert(uri, values);
     }
 }

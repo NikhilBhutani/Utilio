@@ -49,10 +49,8 @@ public class DataContract {
 
         //Columns
         public static final String COLUMN_APPNAME = "app_name";
-        public static final String COLUMN_PACKAGE_NAME = "package_name";
         public static final String COLUMN_DATA_RECEIVED = "data_received";
         public static final String COLUMN_DATA_TRANSMITTED = "data_transmitted";
-        public static final String COLUMN_APP_ICON = "icon";
 
 
        public static Uri buildApplicationUri(long id){

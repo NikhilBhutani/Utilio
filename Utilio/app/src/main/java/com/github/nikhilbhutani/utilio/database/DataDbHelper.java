@@ -27,13 +27,11 @@ public class DataDbHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
 
         //Create table to hold application data
-
         final String SQL_CREATE_APPDATA_TABLE = "CREATE TABLE " + DataContract.ApplicationData.TABLE_NAME + " (" +
                 DataContract.ApplicationData._ID + " INTEGER PRIMARY KEY," +
                 DataContract.ApplicationData.COLUMN_APPNAME + " TEXT NOT NULL, " +
-                DataContract.ApplicationData.COLUMN_PACKAGE_NAME + " TEXT NOT NULL, " +
-                DataContract.ApplicationData.COLUMN_DATA_RECEIVED + " REAL NOT NULL," +
-                DataContract.ApplicationData.COLUMN_DATA_TRANSMITTED + " REAL NOT NULL" +
+                DataContract.ApplicationData.COLUMN_DATA_RECEIVED + " REAL, " +
+                DataContract.ApplicationData.COLUMN_DATA_TRANSMITTED + " REAL" +
                 " );";
 
         sqLiteDatabase.execSQL(SQL_CREATE_APPDATA_TABLE);
