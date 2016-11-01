@@ -7,8 +7,6 @@ import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.net.TrafficStats;
 import android.os.AsyncTask;
-
-import com.facebook.stetho.Stetho;
 import com.github.nikhilbhutani.utilio.database.DataContract;
 
 import java.util.ArrayList;
@@ -22,12 +20,11 @@ public class MyApplication extends Application {
     public static final String LOGTAG = MyApplication.class.getSimpleName();
     ArrayList<ApplicationInfo> appInfoList;
   //  Vector<ContentValues> cVVector;
-     String appname;
-     double received;
+    String appname;
+    double received;
     double transmitted;
     double receivedInKb;
     double transmittedInKb;
-    Context context;
 
 
     @Override
@@ -70,13 +67,10 @@ public class MyApplication extends Application {
                          transmittedInKb = transmitted / 1024;
 
                          contentValues.put(DataContract.ApplicationData.COLUMN_APPNAME, appname);
-
+                         // Displaying Application names on the console.
                          System.out.println(" App name " + appname);
-
                          contentValues.put(DataContract.ApplicationData.COLUMN_DATA_RECEIVED, receivedInKb);
                          contentValues.put(DataContract.ApplicationData.COLUMN_DATA_TRANSMITTED, transmittedInKb);
-
-
                          getApplicationContext().getContentResolver().insert(DataContract.ApplicationData.CONTENT_URI, contentValues);
                      }
 
