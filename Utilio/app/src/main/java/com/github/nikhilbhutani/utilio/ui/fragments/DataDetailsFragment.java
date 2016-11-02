@@ -80,13 +80,12 @@ public class DataDetailsFragment extends Fragment implements LoaderManager.Loade
                 null
         );
 
-       // return null;
     }
 
     @Override
     public void onLoadFinished(Loader<Cursor> loader, Cursor data) {
 
-        System.out.println("In onLoadFinished method");
+
 
         data.moveToFirst();
 
@@ -94,7 +93,10 @@ public class DataDetailsFragment extends Fragment implements LoaderManager.Loade
 
          //   data.getString(data.getColumnIndex(DataContract.ApplicationData.COLUMN_APPNAME));
               System.out.println( data.getString(data.getColumnIndex(DataContract.ApplicationData.COLUMN_APPNAME)));
-              data.moveToNext();
+              System.out.println( data.getString(data.getColumnIndex(DataContract.ApplicationData.COLUMN_DATA_RECEIVED)));
+              System.out.println( data.getString(data.getColumnIndex(DataContract.ApplicationData.COLUMN_DATA_TRANSMITTED)));
+
+            data.moveToNext();
         }
 
        // System.out.println("IN FRAGMENT" +data.getString(data.getColumnIndex(DataContract.ApplicationData.COLUMN_APPNAME)));

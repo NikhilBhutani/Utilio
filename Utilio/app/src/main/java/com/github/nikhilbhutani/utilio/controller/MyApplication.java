@@ -57,18 +57,20 @@ public class MyApplication extends Application {
 
                 for(ApplicationInfo applicationInfo : appInfoList){
 
+
                     appname = (String)packageManager.getApplicationLabel(applicationInfo);
                     received = ((double) TrafficStats.getUidRxBytes(applicationInfo.uid));
                     transmitted = ((double) TrafficStats.getUidTxBytes(applicationInfo.uid));
 
+                    System.out.println(" App name " + appname+ " Data Received : "+received+ " Data Transmitted "+transmitted+ "UID "+applicationInfo.uid);
 
-                     if(received!=0) {
+
+                    if(received!=0) {
                          receivedInKb = received / 1024;
                          transmittedInKb = transmitted / 1024;
 
                          contentValues.put(DataContract.ApplicationData.COLUMN_APPNAME, appname);
                          // Displaying Application names on the console.
-                         System.out.println(" App name " + appname);
                          contentValues.put(DataContract.ApplicationData.COLUMN_DATA_RECEIVED, receivedInKb);
                          contentValues.put(DataContract.ApplicationData.COLUMN_DATA_TRANSMITTED, transmittedInKb);
                          getApplicationContext().getContentResolver().insert(DataContract.ApplicationData.CONTENT_URI, contentValues);
