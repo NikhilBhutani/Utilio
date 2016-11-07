@@ -7,7 +7,11 @@ import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.net.TrafficStats;
 import android.os.AsyncTask;
+
+import com.github.nikhilbhutani.utilio.R;
 import com.github.nikhilbhutani.utilio.database.DataContract;
+import com.google.android.gms.analytics.GoogleAnalytics;
+import com.google.android.gms.analytics.Tracker;
 
 import java.util.ArrayList;
 
@@ -20,12 +24,12 @@ public class MyApplication extends Application {
     public static final String LOGTAG = MyApplication.class.getSimpleName();
     ArrayList<ApplicationInfo> appInfoList;
   //  Vector<ContentValues> cVVector;
-    String appname;
-    double received;
-    double transmitted;
-    double receivedInKb;
-    double transmittedInKb;
-
+    private String appname;
+    private double received;
+    private double transmitted;
+    private double receivedInKb;
+    private double transmittedInKb;
+    private Tracker mTracker;
 
     @Override
     public void onCreate() {
@@ -83,7 +87,17 @@ public class MyApplication extends Application {
         }.execute();
 
 
+
     }
 
+
+    synchronized public Tracker getDefaultTracker() {
+        if (mTracker == null) {
+            GoogleAnalytics analytics = GoogleAnalytics.getInstance(this);
+            // To enable debug logging use: adb shell setprop log.tag.GAv4 DEBUG
+            mTracker = analytics.newTracker(R.xml.global_tracker);
+        }
+        return mTracker;
+    }
 
 }
