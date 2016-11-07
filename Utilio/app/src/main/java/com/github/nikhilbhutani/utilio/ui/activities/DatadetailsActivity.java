@@ -5,7 +5,9 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 
 import com.github.nikhilbhutani.utilio.R;
+import com.github.nikhilbhutani.utilio.controller.MyApplication;
 import com.github.nikhilbhutani.utilio.ui.fragments.DataDetailsFragment;
+import com.google.android.gms.analytics.Tracker;
 
 /**
  * Created by Nikhil Bhutani on 10/11/2016.
@@ -24,6 +26,7 @@ public class DatadetailsActivity extends AppCompatActivity{
                     .add(R.id.networkdetail_container, new DataDetailsFragment())
                     .commit();
         }
+
 
     }
 
