@@ -73,6 +73,7 @@ public class Dashboard extends BaseActivity {
         Log.i(TAG, "Setting screen name: " + name);
         tracker.setScreenName("Image~" + name);
         tracker.send(new HitBuilders.ScreenViewBuilder().build());
+
     }
 
 }

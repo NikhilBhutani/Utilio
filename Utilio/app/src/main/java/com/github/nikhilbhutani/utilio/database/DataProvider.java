@@ -95,7 +95,6 @@ public class DataProvider extends ContentProvider{
                 if(_id>0){
 
                     returnUri = DataContract.ApplicationData.buildApplicationUri(_id);
-                   System.out.println("Inserted "+ returnUri);
                 }
                 else
                 {throw new android.database.SQLException("Failed to insert row into" +uri); }

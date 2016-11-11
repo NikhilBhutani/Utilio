@@ -66,7 +66,7 @@ public class MyApplication extends Application {
                     received = ((double) TrafficStats.getUidRxBytes(applicationInfo.uid));
                     transmitted = ((double) TrafficStats.getUidTxBytes(applicationInfo.uid));
 
-                    System.out.println(" App name " + appname+ " Data Received : "+received+ " Data Transmitted "+transmitted+ "UID "+applicationInfo.uid);
+//                    System.out.println(" App name " + appname+ " Data Received : "+received+ " Data Transmitted "+transmitted+ "UID "+applicationInfo.uid);
 
 
                     if(received!=0) {

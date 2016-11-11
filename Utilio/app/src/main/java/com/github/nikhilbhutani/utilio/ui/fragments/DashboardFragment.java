@@ -1,5 +1,8 @@
 package com.github.nikhilbhutani.utilio.ui.fragments;
 
+import android.app.usage.UsageStats;
+import android.app.usage.UsageStatsManager;
+import android.content.Context;
 import android.content.Intent;
 import android.net.TrafficStats;
 import android.os.Bundle;
@@ -15,6 +18,11 @@ import android.widget.TextView;
 import com.github.nikhilbhutani.utilio.R;
 import com.github.nikhilbhutani.utilio.ui.activities.DatadetailsActivity;
 
+import java.util.Iterator;
+import java.util.List;
+
+import static android.content.Context.USAGE_STATS_SERVICE;
+
 /**
  * Created by Nikhil Bhutani on 10/11/2016.
  */
@@ -26,6 +34,8 @@ public class DashboardFragment extends Fragment {
     private View view;
     private TextView dataUsed;
     private CardView dataCardView;
+
+
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -51,14 +61,9 @@ public class DashboardFragment extends Fragment {
         super.onActivityCreated(savedInstanceState);
 
 
-        long usedData = TrafficStats.getTotalTxBytes();
+        displayDataUsed();
 
-        if((usedData/1024) > 1000){
-            dataUsed.setText(String.valueOf(usedData/(1024*1024))+" mb");
-        }else{
-            dataUsed.setText(String.valueOf(usedData/1024)+" kb");
-        }
-
+        displayPhoneUsage();
 
         dataCardView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -68,5 +73,41 @@ public class DashboardFragment extends Fragment {
             }
         });
     }
+
+    private void displayDataUsed() {
+        long usedData = TrafficStats.getTotalTxBytes();
+
+        if((usedData/1024) > 1000){
+            dataUsed.setText(String.valueOf(usedData/(1024*1024))+" mb");
+        }else{
+            dataUsed.setText(String.valueOf(usedData/1024)+" kb");
+        }
+
+
+    }
+
+    private void displayPhoneUsage() {
+
+        UsageStatsManager statsManager = (UsageStatsManager)getContext().getSystemService(USAGE_STATS_SERVICE);
+        long time = System.currentTimeMillis();
+
+
+
+
+
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
+            List<UsageStats> stats = statsManager.queryUsageStats(UsageStatsManager.INTERVAL_DAILY, time - 1000 * 60, time);
+
+            Iterator<UsageStats> iterator = stats.iterator();
+
+            if(iterator.hasNext()){
+                Object o = iterator.next();
+                    System.out.println("My usage stats is : "+o);
+                }
+            }
+
+        }
+
+
 
 }
