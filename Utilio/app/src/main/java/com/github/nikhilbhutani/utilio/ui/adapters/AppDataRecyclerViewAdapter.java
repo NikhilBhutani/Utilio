@@ -49,7 +49,7 @@ public class AppDataRecyclerViewAdapter extends RecyclerView.Adapter<AppDataRecy
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
 
-        TextView appName;
+       private final TextView appName;
 
         public MyViewHolder(View itemView) {
             super(itemView);

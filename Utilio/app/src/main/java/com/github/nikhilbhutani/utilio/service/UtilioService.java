@@ -9,6 +9,8 @@ import android.support.annotation.Nullable;
 import android.util.Log;
 import android.widget.Toast;
 
+import com.github.nikhilbhutani.utilio.receiver.UtilioReceiver;
+
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Timer;
@@ -24,11 +26,17 @@ public class UtilioService extends Service {
     Timer mTimer;
     Handler mHandler;
 
+    UtilioReceiver utilioReceiver;
     @Override
     public void onCreate() {
         super.onCreate();
+
+        utilioReceiver = new UtilioReceiver();
          mTimer = new Timer();
          mHandler = new Handler();
+
+        registerReceiver(utilioReceiver,new IntentFilter(Intent.ACTION_SCREEN_OFF));
+
     }
 
     @Override
@@ -37,6 +45,18 @@ public class UtilioService extends Service {
               onPhoneUnlocked();
               return Service.START_NOT_STICKY;
           }
+
+          if(intent.getBooleanExtra("screenoff", true)){
+
+              mTimer.cancel();
+
+              Calendar cal = Calendar.getInstance();
+
+              //System.out.println(" ***Service Stopped NB WOhoooo****** "+cal.getTime());
+
+              return Service.START_NOT_STICKY;
+          }
+
          return onStartCommand(intent, flags, startId);
 
     }
@@ -52,7 +72,7 @@ public class UtilioService extends Service {
                     @Override
                     public void run() {
                         Calendar calendar = Calendar.getInstance();
-                        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd:MMMM:yyyy HH:mm:ss a");
+                        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("HH:mm:ss");
                         final String strDate = simpleDateFormat.format(calendar.getTime());
 
                         Toast.makeText(UtilioService.this, strDate, Toast.LENGTH_SHORT).show();
@@ -74,6 +94,9 @@ public class UtilioService extends Service {
     @Override
     public void onDestroy() {
         super.onDestroy();
+
+
+        unregisterReceiver(utilioReceiver);
 
 
     }

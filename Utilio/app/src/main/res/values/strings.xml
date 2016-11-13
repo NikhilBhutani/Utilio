@@ -2,4 +2,7 @@
     <string name="app_name">Utilio</string>
     <string name="content_authority">com.github.nikhilbhutani.utilio</string>
 
+    <string name="lasttimeused">"Last time used: "</string>
+    <string name="timespan">"Time span: "</string>
+
 </resources>

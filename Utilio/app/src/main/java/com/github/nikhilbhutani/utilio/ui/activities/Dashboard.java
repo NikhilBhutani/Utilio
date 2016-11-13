@@ -25,7 +25,7 @@ public class Dashboard extends BaseActivity {
 
   //  CardView cardView;
     private static final String TAG = Dashboard.class.getSimpleName();
-    private Tracker tracker;
+    private static Tracker tracker;
 
 
 

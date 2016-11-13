@@ -25,6 +25,8 @@
         </activity>
         <activity android:name=".ui.activities.DatadetailsActivity" android:screenOrientation="portrait"/>
 
+        <activity android:name=".ui.activities.PhonedetailsActivity" android:screenOrientation="portrait"/>
+
         <provider
             android:name=".database.DataProvider"
             android:authorities="@string/content_authority"
@@ -34,6 +36,9 @@
         <receiver android:name=".receiver.UtilioReceiver">
             <intent-filter>
                 <action android:name="android.intent.action.USER_PRESENT"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.SCREEN_OFF"/>
             </intent-filter>
             </receiver>
         <service android:name=".service.UtilioService"/>

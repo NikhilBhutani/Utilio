@@ -17,6 +17,7 @@ import android.widget.TextView;
 
 import com.github.nikhilbhutani.utilio.R;
 import com.github.nikhilbhutani.utilio.ui.activities.DatadetailsActivity;
+import com.github.nikhilbhutani.utilio.ui.activities.PhonedetailsActivity;
 
 import java.util.Iterator;
 import java.util.List;
@@ -34,6 +35,7 @@ public class DashboardFragment extends Fragment {
     private View view;
     private TextView dataUsed;
     private CardView dataCardView;
+    private CardView phoneUsageCardView;
 
 
 
@@ -52,6 +54,7 @@ public class DashboardFragment extends Fragment {
         toolbar = (Toolbar)view.findViewById(R.id.toolbar);
         dataUsed = (TextView)view.findViewById(R.id.DataUsed);
         dataCardView = (CardView)view.findViewById(R.id.cardview1);
+        phoneUsageCardView = (CardView)view.findViewById(R.id.cardview2);
         return view;
     }
 
@@ -69,6 +72,15 @@ public class DashboardFragment extends Fragment {
             @Override
             public void onClick(View view) {
                    getActivity().startActivity(new Intent(getContext(), DatadetailsActivity.class));
+                getActivity().overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_right);
+            }
+        });
+
+
+        phoneUsageCardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                getActivity().startActivity(new Intent(getContext(), PhonedetailsActivity.class));
                 getActivity().overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_right);
             }
         });
