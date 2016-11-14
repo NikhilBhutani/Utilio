@@ -5,4 +5,9 @@
     <string name="lasttimeused">"Last time used: "</string>
     <string name="timespan">"Time span: "</string>
 
+     <string name="explanation_access_to_appusage_is_not_enabled">Failed to retrieve app usage
+        statistics. You may need to enable access
+        for this app through Settings > Security > Apps with usage access
+    </string>
+
 </resources>

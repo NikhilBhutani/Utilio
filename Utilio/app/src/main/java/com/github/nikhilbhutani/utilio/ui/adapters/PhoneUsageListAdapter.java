@@ -1,12 +1,21 @@
 package com.github.nikhilbhutani.utilio.ui.adapters;
 
+import android.os.Build;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.github.nikhilbhutani.utilio.Model.CustomUsageStats;
 import com.github.nikhilbhutani.utilio.R;
+
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 
 /**
  * Created by Nikhil Bhutani on 11/13/2016.
@@ -14,6 +23,8 @@ import com.github.nikhilbhutani.utilio.R;
 
 public class PhoneUsageListAdapter extends RecyclerView.Adapter<PhoneUsageListAdapter.ViewHolder>{
 
+    private List<CustomUsageStats> mCustomUsageStatsList = new ArrayList<>();
+    private DateFormat mDateFormat = new SimpleDateFormat();
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -25,24 +36,40 @@ public class PhoneUsageListAdapter extends RecyclerView.Adapter<PhoneUsageListAd
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
 
+
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            holder.packageName.setText(mCustomUsageStatsList.get(position).usageStats.getPackageName());
+            long lastTimeUsed = mCustomUsageStatsList.get(position).usageStats.getLastTimeUsed();
+            holder.lastTimeUsed.setText(mDateFormat.format(new Date(lastTimeUsed)));
+
+            holder.mAppIcon.setImageDrawable(mCustomUsageStatsList.get(position).appIcon);
+
+        }
+
     }
 
     @Override
     public int getItemCount() {
-        return 0;
+        return mCustomUsageStatsList.size();
+    }
+
+    public void setCustomUsageStatsList(List<CustomUsageStats> customUsageStats) {
+        mCustomUsageStatsList = customUsageStats;
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder{
 
         private final TextView packageName;
         private final TextView lastTimeUsed;
+        private final ImageView mAppIcon;
 
         public ViewHolder(View itemView) {
             super(itemView);
 
             packageName = (TextView)itemView.findViewById(R.id.package_name);
             lastTimeUsed = (TextView)itemView.findViewById(R.id.lasttimeused);
-
+            mAppIcon = (ImageView) itemView.findViewById(R.id.app_icon);
         }
 
     }
