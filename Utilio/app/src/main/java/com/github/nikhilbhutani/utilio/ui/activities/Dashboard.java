@@ -211,10 +211,13 @@ public class Dashboard extends BaseActivity implements OnDataPointListener, Goog
 
         for (final Field field : dataPoint.getDataType().getFields()) {
             final Value value = dataPoint.getValue(field);
+            final String steps = value.toString();
             runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
-                    Toast.makeText(getApplicationContext(), "Field: " + field.getName() + " Value: " + value, Toast.LENGTH_SHORT).show();
+                //    Toast.makeText(getApplicationContext(), "Field: " + field.getName() + " Value: " + value, Toast.LENGTH_SHORT).show();
+
+                  DashboardFragment.countedSteps.setText(steps);
                 }
             });
         }

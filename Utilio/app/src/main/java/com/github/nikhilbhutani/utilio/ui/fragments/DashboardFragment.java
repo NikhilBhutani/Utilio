@@ -67,6 +67,7 @@ public class DashboardFragment extends Fragment{
     private boolean authInProgress = false;
     private static final String AUTH_PENDING = "auth_state_pending";
     Activity mActivity = getActivity();
+    public static TextView countedSteps;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -84,6 +85,7 @@ public class DashboardFragment extends Fragment{
         dataUsed = (TextView) view.findViewById(R.id.DataUsed);
         dataCardView = (CardView) view.findViewById(R.id.cardview1);
         phoneUsageCardView = (CardView) view.findViewById(R.id.cardview2);
+        countedSteps = (TextView)view.findViewById(R.id.countedSteps);
         return view;
     }
 
