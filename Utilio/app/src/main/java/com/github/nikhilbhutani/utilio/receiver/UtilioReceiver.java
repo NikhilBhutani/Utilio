@@ -18,6 +18,8 @@ public class UtilioReceiver extends BroadcastReceiver{
 
         if(intent.getAction()!= null){
 
+
+            /*
             if(intent.getAction().equals(Intent.ACTION_USER_PRESENT)){
 
                 Intent localIntentUsrPrsnt = new Intent(context, UtilioService.class);
@@ -35,6 +37,8 @@ public class UtilioReceiver extends BroadcastReceiver{
                 context.startService(intentScreenOff);
 
             }
+
+            */
 
         }
 
