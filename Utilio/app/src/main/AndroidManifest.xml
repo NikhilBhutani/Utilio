@@ -47,6 +47,19 @@
         <service android:name=".service.UtilioService"/>
 
 
+        <receiver android:name=".ui.activities.WidgetActivity"
+            android:label="Utilio Data Summary">
+
+            <intent-filter>
+              <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.widget.provider"
+                android:resource="@xml/appwidgetproviderinfo"/>
+        </receiver>
+        
+
         <!--For Play services libraries Meta tag  -->
         <meta-data android:name="com.google.android.gms.version"
             android:value = "@integer/google_play_services_version"/>
