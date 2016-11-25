@@ -3,33 +3,15 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-<!--
-    <ImageView
-        android:layout_width="60dip"
-        android:layout_height="60dip"
-        android:src="@drawable/ic_dataused"
-        android:tint="#F44336"
-        android:layout_gravity="center_horizontal"/>
--->
+
     <TextView
         android:id="@+id/datausedwidget_text"
         android:layout_width="wrap_content"
-        android:layout_height="?attr/actionBarSize"
+        android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:text="Data Used...."
         android:textSize="33sp"
         android:textColor="#757575" />
-<!--
-    <TextView
-        android:id="@+id/tv_title_DataUsed"
-        android:layout_width="wrap_content"
-        android:layout_height="?attr/actionBarSize"
-        android:layout_gravity="center|bottom"
-        android:gravity="center"
-        android:text="Total Data Used"
-        android:textSize="18sp"
-        android:textColor="#757575"/>
--->
 
 
 </LinearLayout>

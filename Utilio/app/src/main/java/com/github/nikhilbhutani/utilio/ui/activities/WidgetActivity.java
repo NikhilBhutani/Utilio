@@ -38,10 +38,12 @@ public class WidgetActivity extends AppWidgetProvider {
 
         RemoteViews remoteViews = new RemoteViews(context.getPackageName(), R.layout.utility_widget);
 
+        ///remoteViews.setTextViewText(R.id.datausedwidget_text," HeLLo Nikhil ");
+
         if ((usedData / 1024) > 1000) {
-            remoteViews.setTextViewText(R.id.datausedwidget_text, String.valueOf(usedData / (1024 * 1024)) + " mb");
+            remoteViews.setTextViewText(R.id.datausedwidget_text, String.valueOf(usedData / (1024 * 1024)) + " mb Used");
         } else {
-            remoteViews.setTextViewText(R.id.datausedwidget_text, String.valueOf(usedData / 1024) + " kb");
+            remoteViews.setTextViewText(R.id.datausedwidget_text, String.valueOf(usedData / 1024) + " kb Used");
         }
 
         Intent intent = new Intent(context, WidgetActivity.class);
