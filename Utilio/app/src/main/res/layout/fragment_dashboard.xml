@@ -83,17 +83,6 @@
 
                 </android.support.v7.widget.CardView>
 
-
-                <android.support.v7.widget.CardView
-                    android:layout_width="match_parent"
-                    android:layout_height="400dip"
-                    android:layout_marginTop="15dip"
-                    app:cardElevation="4dp">
-
-                    <include layout="@layout/graph_dashboard"/>
-
-                </android.support.v7.widget.CardView>
-
             </LinearLayout>
         </ScrollView>
     </RelativeLayout>

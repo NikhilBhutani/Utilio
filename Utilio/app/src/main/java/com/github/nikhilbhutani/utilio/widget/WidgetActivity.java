@@ -1,4 +1,4 @@
-package com.github.nikhilbhutani.utilio.ui.activities;
+package com.github.nikhilbhutani.utilio.widget;
 
 import android.appwidget.AppWidgetManager;
 import android.appwidget.AppWidgetProvider;

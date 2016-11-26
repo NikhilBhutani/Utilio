@@ -6,10 +6,14 @@
     android:background="?android:attr/selectableItemBackground">
 
 
-    <RelativeLayout
-        android:layout_width="wrap_content"
+
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true">
+        android:layout_margin="6dp"
+        android:orientation="horizontal"
+        android:weightSum="3"
+        >
 
 
         <TextView
@@ -19,9 +23,74 @@
             android:layout_marginLeft="5dp"
             android:textColor="#212121"
             android:textSize="17sp"
-            tools:text="App Name" />
+            tools:text="App Name"
+            android:layout_weight="1"/>
 
 
-    </RelativeLayout>
+        <RelativeLayout
+            android:id="@+id/downloaded_tag"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+
+
+            <ImageView
+                android:id="@+id/down_icon"
+                android:layout_width="12dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="185dp"
+                android:layout_marginTop="7dp"
+
+                />
+
+
+
+            <TextView
+                android:id="@+id/downloaded_data"
+                android:layout_toRightOf="@+id/down_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:textColor="#212121"
+                android:textSize="17sp"
+                tools:text="downloaded data"
+                />
+
+        </RelativeLayout>
+
+
+
+        <RelativeLayout
+            android:id="@+id/uploaded_tag"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+
+            <ImageView
+                android:id="@+id/upload_icon"
+                android:layout_width="12dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="265dp"
+                android:layout_marginTop="7dp"
+
+                />
+
+
+            <TextView
+                android:id="@+id/uploaded_data"
+                android:layout_toRightOf="@+id/upload_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:textColor="#212121"
+                android:textSize="17sp"
+                tools:text="uploaded data"
+                />
+
+        </RelativeLayout>
+
+    </LinearLayout>
 
 </android.support.design.widget.CoordinatorLayout>

@@ -47,7 +47,7 @@
         <service android:name=".service.UtilioService"/>
 
 
-        <receiver android:name=".ui.activities.WidgetActivity"
+        <receiver android:name=".widget.WidgetActivity"
             android:label="Utilio Data Summary">
 
             <intent-filter>
