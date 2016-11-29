@@ -38,7 +38,8 @@ public class AppDataRecyclerViewAdapter extends RecyclerView.Adapter<AppDataRecy
         mCursor.moveToPosition(position);
 
         holder.appName.setText(mCursor.getString(mCursor.getColumnIndex(DataContract.ApplicationData.COLUMN_APPNAME)));
-
+        holder.dataReceived.setText(mCursor.getString(mCursor.getColumnIndex(DataContract.ApplicationData.COLUMN_DATA_RECEIVED)));
+        holder.dataTransmitted.setText(mCursor.getString(mCursor.getColumnIndex(DataContract.ApplicationData.COLUMN_DATA_TRANSMITTED)));
     }
 
     @Override
@@ -50,11 +51,15 @@ public class AppDataRecyclerViewAdapter extends RecyclerView.Adapter<AppDataRecy
     public class MyViewHolder extends RecyclerView.ViewHolder {
 
        private final TextView appName;
+       private final TextView dataReceived;
+       private final TextView dataTransmitted;
 
         public MyViewHolder(View itemView) {
             super(itemView);
 
             appName = (TextView) itemView.findViewById(R.id.app_name);
+            dataReceived = (TextView)itemView.findViewById(R.id.downloaded_data);
+            dataTransmitted = (TextView)itemView.findViewById(R.id.uploaded_data);
         }
     }
 }

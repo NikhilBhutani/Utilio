@@ -9,7 +9,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_margin="6dp"
         android:orientation="horizontal"
         android:weightSum="3"
@@ -20,7 +20,7 @@
             android:id="@+id/app_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="5dp"
+            android:layout_marginLeft="4dp"
             android:textColor="#212121"
             android:textSize="17sp"
             tools:text="App Name"
@@ -39,9 +39,8 @@
                 android:id="@+id/down_icon"
                 android:layout_width="12dp"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="185dp"
-                android:layout_marginTop="7dp"
-
+                android:layout_marginTop="3dp"
+                android:src="@drawable/downarrow"
                 />
 
 
@@ -72,9 +71,8 @@
                 android:id="@+id/upload_icon"
                 android:layout_width="12dp"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="265dp"
-                android:layout_marginTop="7dp"
-
+                android:src="@drawable/uparrow"
+                android:layout_marginTop="3dp"
                 />
 
 
@@ -83,8 +81,8 @@
                 android:layout_toRightOf="@+id/upload_icon"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
                 android:textColor="#212121"
+                android:layout_marginLeft="5dp"
                 android:textSize="17sp"
                 tools:text="uploaded data"
                 />
