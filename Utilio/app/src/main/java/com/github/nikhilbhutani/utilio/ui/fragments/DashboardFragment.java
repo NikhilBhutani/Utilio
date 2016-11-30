@@ -53,7 +53,7 @@ import static android.content.Context.USAGE_STATS_SERVICE;
  * Created by Nikhil Bhutani on 10/11/2016.
  */
 
-public class DashboardFragment extends Fragment{
+public class DashboardFragment extends Fragment {
 
 
     private Toolbar toolbar;
@@ -85,7 +85,7 @@ public class DashboardFragment extends Fragment{
         dataUsed = (TextView) view.findViewById(R.id.DataUsed);
         dataCardView = (CardView) view.findViewById(R.id.cardview1);
         phoneUsageCardView = (CardView) view.findViewById(R.id.cardview2);
-        countedSteps = (TextView)view.findViewById(R.id.countedSteps);
+        countedSteps = (TextView) view.findViewById(R.id.countedSteps);
         return view;
     }
 

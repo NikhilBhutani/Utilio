@@ -39,7 +39,7 @@ import java.util.List;
  * Created by Nikhil Bhutani on 10/11/2016.
  */
 
-public class PhoneDetailsFragment extends Fragment{
+public class PhoneDetailsFragment extends Fragment {
 
 
     private static final String TAG = PhoneDetailsFragment.class.getSimpleName();
@@ -54,7 +54,7 @@ public class PhoneDetailsFragment extends Fragment{
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        usageStatsManager = (UsageStatsManager)getActivity().getSystemService(Context.USAGE_STATS_SERVICE);
+        usageStatsManager = (UsageStatsManager) getActivity().getSystemService(Context.USAGE_STATS_SERVICE);
 
     }
 
@@ -64,10 +64,10 @@ public class PhoneDetailsFragment extends Fragment{
 
         View view = inflater.inflate(R.layout.fragment_phoneusagedetails, container, false);
         phoneUsageListAdapter = new PhoneUsageListAdapter();
-        recyclerView = (RecyclerView)view.findViewById(R.id.recyclerViewPhoneusage);
+        recyclerView = (RecyclerView) view.findViewById(R.id.recyclerViewPhoneusage);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
-        spinner = (Spinner)view.findViewById(R.id.spinner_time_span);
+        spinner = (Spinner) view.findViewById(R.id.spinner_time_span);
         return view;
 
     }
@@ -79,8 +79,8 @@ public class PhoneDetailsFragment extends Fragment{
         recyclerView.scrollToPosition(0);
         recyclerView.setAdapter(phoneUsageListAdapter);
 
-        SpinnerAdapter spinnerAdapter = ArrayAdapter.createFromResource(getActivity(), R.array.action_list , android.R.layout.simple_spinner_dropdown_item);
-         spinner.setAdapter(spinnerAdapter);
+        SpinnerAdapter spinnerAdapter = ArrayAdapter.createFromResource(getActivity(), R.array.action_list, android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(spinnerAdapter);
 
 
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -109,11 +109,8 @@ public class PhoneDetailsFragment extends Fragment{
             public void onNothingSelected(AdapterView<?> adapterView) {
 
 
-
             }
         });
-
-
 
 
     }
@@ -179,14 +176,13 @@ public class PhoneDetailsFragment extends Fragment{
         @Override
         public int compare(UsageStats left, UsageStats right) {
 
-                return Long.compare(right.getLastTimeUsed(), left.getLastTimeUsed());
+            return Long.compare(right.getLastTimeUsed(), left.getLastTimeUsed());
         }
     }
 
     /**
      * Enum represents the intervals for {@link android.app.usage.UsageStatsManager} so that
      * values for intervals can be found by a String representation.
-     *
      */
     static enum StatsUsageInterval {
         DAILY("Daily", UsageStatsManager.INTERVAL_DAILY),

@@ -23,7 +23,7 @@
             android:layout_marginLeft="4dp"
             android:textColor="#212121"
             android:textSize="17sp"
-            tools:text="App Name"
+            tools:text="@string/apps_name"
             android:layout_weight="1"/>
 
 
@@ -53,7 +53,7 @@
                 android:layout_marginLeft="5dp"
                 android:textColor="#212121"
                 android:textSize="17sp"
-                tools:text="downloaded data"
+                tools:text="@string/downloaded_data"
                 />
 
         </RelativeLayout>
@@ -84,7 +84,7 @@
                 android:textColor="#212121"
                 android:layout_marginLeft="5dp"
                 android:textSize="17sp"
-                tools:text="uploaded data"
+                tools:text="@string/uploaded_data"
                 />
 
         </RelativeLayout>

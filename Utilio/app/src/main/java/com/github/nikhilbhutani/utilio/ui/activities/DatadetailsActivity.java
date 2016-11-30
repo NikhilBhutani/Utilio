@@ -13,14 +13,14 @@ import com.google.android.gms.analytics.Tracker;
  * Created by Nikhil Bhutani on 10/11/2016.
  */
 
-public class DatadetailsActivity extends AppCompatActivity{
+public class DatadetailsActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_networkdetail);
 
-        if(savedInstanceState == null){
+        if (savedInstanceState == null) {
             getSupportFragmentManager()
                     .beginTransaction()
                     .add(R.id.networkdetail_container, new DataDetailsFragment())

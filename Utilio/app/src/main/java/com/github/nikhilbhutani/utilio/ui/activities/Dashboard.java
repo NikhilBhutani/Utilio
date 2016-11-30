@@ -215,9 +215,7 @@ public class Dashboard extends BaseActivity implements OnDataPointListener, Goog
             runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
-                //    Toast.makeText(getApplicationContext(), "Field: " + field.getName() + " Value: " + value, Toast.LENGTH_SHORT).show();
-
-                  DashboardFragment.countedSteps.setText(steps);
+                    DashboardFragment.countedSteps.setText(steps);
                 }
             });
         }

@@ -11,8 +11,7 @@ import com.github.nikhilbhutani.utilio.ui.fragments.PhoneDetailsFragment;
  * Created by Nikhil Bhutani on 10/11/2016.
  */
 
-public class PhonedetailsActivity extends AppCompatActivity{
-
+public class PhonedetailsActivity extends AppCompatActivity {
 
 
     @Override
@@ -20,12 +19,12 @@ public class PhonedetailsActivity extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_phoneusagedetails);
 
-         if(savedInstanceState == null){
-             getSupportFragmentManager()
-                     .beginTransaction()
-                     .add(R.id.phoneusagedetail_container, new PhoneDetailsFragment())
-                     .commit();
-         }
+        if (savedInstanceState == null) {
+            getSupportFragmentManager()
+                    .beginTransaction()
+                    .add(R.id.phoneusagedetail_container, new PhoneDetailsFragment())
+                    .commit();
+        }
 
     }
 }

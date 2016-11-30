@@ -8,7 +8,7 @@
         android:layout_width="60dip"
         android:layout_height="60dip"
         android:src="@drawable/mapbox_phone"
-        android:tint="#F44336"
+        android:tint="@color/dashboard_icons_color"
         android:layout_gravity="center_horizontal"/>
 
 
@@ -17,7 +17,7 @@
         android:layout_width="wrap_content"
         android:layout_height="?attr/actionBarSize"
         android:layout_gravity="center"
-        android:text="Minutes Used...."
+        android:text="@string/minutesused_count_dashboard"
         android:textSize="33sp"
         android:textColor="#757575"
         android:layout_marginBottom="25dip"/>
@@ -38,7 +38,7 @@
         android:layout_height="?attr/actionBarSize"
         android:layout_gravity="center|bottom"
         android:gravity="center"
-        android:text="Phone Usage"
+        android:text="@string/phone_used_title"
         android:textSize="18sp"
         android:textColor="#757575"/>
 

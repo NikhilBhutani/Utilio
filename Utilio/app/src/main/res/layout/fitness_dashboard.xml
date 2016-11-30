@@ -10,7 +10,7 @@
         android:layout_width="60dip"
         android:layout_height="60dip"
         android:src="@drawable/fit_steps"
-        android:tint="#F44336"
+        android:tint="@color/dashboard_icons_color"
         android:layout_gravity="center_horizontal"/>
 
     <TextView
@@ -18,7 +18,7 @@
         android:layout_width="wrap_content"
         android:layout_height="?attr/actionBarSize"
         android:layout_gravity="center"
-        android:text="Steps.."
+        android:text="@string/step_count"
         android:textSize="33sp"
         android:textColor="#757575"
         android:layout_marginBottom="25dip"/>
@@ -37,7 +37,7 @@
         android:layout_height="?attr/actionBarSize"
         android:layout_gravity="center|bottom"
         android:gravity="center"
-        android:text="Steps"
+        android:text="@string/steps_title"
         android:textSize="18sp"
         android:textColor="#757575"/>
 

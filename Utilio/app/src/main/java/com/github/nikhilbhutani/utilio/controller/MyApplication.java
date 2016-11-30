@@ -35,16 +35,8 @@ public class MyApplication extends Application {
     public void onCreate() {
         super.onCreate();
 
-        /*
-        Stetho.initialize(
-                Stetho.newInitializerBuilder(this)
-                        .enableWebKitInspector(Stetho.defaultInspectorModulesProvider(this))
-                        .build());
-              */
-
         final PackageManager packageManager = getApplicationContext().getPackageManager();
 
-        System.out.println("MY APPLICATION's ONCREATE CALLED");
 
 
         new AsyncTask<Void, Void, Void>(){

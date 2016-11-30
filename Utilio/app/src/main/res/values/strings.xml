@@ -1,6 +1,16 @@
 <resources>
     <string name="app_name">Utilio</string>
     <string name="content_authority">com.github.nikhilbhutani.utilio</string>
+    <string name="step_count">0</string>
+    <string name="steps_title">Steps</string>
+
+    <string name="dataused_count_dashboard">0</string>
+    <string name="data_used_title">Total Data Used</string>
+
+
+    <string name="minutesused_count_dashboard">0</string>
+    <string name="phone_used_title">Phone Usage</string>
+
 
     <string name="lasttimeused">"Last time used: "</string>
     <string name="timespan">"Time span: "</string>
@@ -9,5 +19,10 @@
         statistics. You may need to enable access
         for this app through Settings > Security > Apps with usage access
     </string>
+
+    <string name="package_name">Package Name</string>
+    <string name="apps_name">App Name</string>
+    <string name="downloaded_data">Downloaded data</string>
+    <string name="uploaded_data">Uploaded data</string>
 
 </resources>

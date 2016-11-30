@@ -21,7 +21,7 @@ import java.util.List;
  * Created by Nikhil Bhutani on 11/13/2016.
  */
 
-public class PhoneUsageListAdapter extends RecyclerView.Adapter<PhoneUsageListAdapter.ViewHolder>{
+public class PhoneUsageListAdapter extends RecyclerView.Adapter<PhoneUsageListAdapter.ViewHolder> {
 
     private List<CustomUsageStats> mCustomUsageStatsList = new ArrayList<>();
     private DateFormat mDateFormat = new SimpleDateFormat();
@@ -35,7 +35,6 @@ public class PhoneUsageListAdapter extends RecyclerView.Adapter<PhoneUsageListAd
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-
 
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
@@ -58,7 +57,7 @@ public class PhoneUsageListAdapter extends RecyclerView.Adapter<PhoneUsageListAd
         mCustomUsageStatsList = customUsageStats;
     }
 
-    public static class ViewHolder extends RecyclerView.ViewHolder{
+    public static class ViewHolder extends RecyclerView.ViewHolder {
 
         private final TextView packageName;
         private final TextView lastTimeUsed;
@@ -67,8 +66,8 @@ public class PhoneUsageListAdapter extends RecyclerView.Adapter<PhoneUsageListAd
         public ViewHolder(View itemView) {
             super(itemView);
 
-            packageName = (TextView)itemView.findViewById(R.id.package_name);
-            lastTimeUsed = (TextView)itemView.findViewById(R.id.lasttimeused);
+            packageName = (TextView) itemView.findViewById(R.id.package_name);
+            lastTimeUsed = (TextView) itemView.findViewById(R.id.lasttimeused);
             mAppIcon = (ImageView) itemView.findViewById(R.id.app_icon);
         }
 
