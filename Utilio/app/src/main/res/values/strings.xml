@@ -35,4 +35,9 @@
     <string name="image_download_icon">Download</string>
     <string name="image_upload_icon">Upload</string>
     <string name="app_icon_image">App Icon</string>
+    <string name="share_icon">Share</string>
+    <string name="backdrop_image">Backdrop</string>
+
+
+
 </resources>

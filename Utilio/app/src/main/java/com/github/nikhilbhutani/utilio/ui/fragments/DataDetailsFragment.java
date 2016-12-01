@@ -1,11 +1,13 @@
 package com.github.nikhilbhutani.utilio.ui.fragments;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.support.annotation.Nullable;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.LoaderManager;
 import android.support.v4.content.CursorLoader;
@@ -30,8 +32,8 @@ public class DataDetailsFragment extends Fragment implements LoaderManager.Loade
 
     private static final int APPDATA_LOADER = 0;
 
-    RecyclerView recyclerView;
-    AppDataRecyclerViewAdapter recyclerViewAdapter;
+    private RecyclerView recyclerView;
+    private AppDataRecyclerViewAdapter recyclerViewAdapter;
 
     private static final String[] APPDATA_COLUMNS = {
             DataContract.ApplicationData.TABLE_NAME + "." + DataContract.ApplicationData._ID,
@@ -39,7 +41,7 @@ public class DataDetailsFragment extends Fragment implements LoaderManager.Loade
             DataContract.ApplicationData.COLUMN_DATA_RECEIVED,
             DataContract.ApplicationData.COLUMN_DATA_TRANSMITTED
     };
-
+    private FloatingActionButton share;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -56,6 +58,7 @@ public class DataDetailsFragment extends Fragment implements LoaderManager.Loade
 
         recyclerView = (RecyclerView) view.findViewById(R.id.recyclerViewDataItem);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        share = (FloatingActionButton)view.findViewById(R.id.fab);
 
         return view;
     }
@@ -69,7 +72,16 @@ public class DataDetailsFragment extends Fragment implements LoaderManager.Loade
 
 
         //  System.out.println("IN FRAGMENT" +mCursor.getString(mCursor.getColumnIndex(DataContract.ApplicationData.COLUMN_APPNAME)));
+        share.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent sharingIntent = new Intent(android.content.Intent.ACTION_SEND);
+                sharingIntent.setType("text/plain");
+                sharingIntent.putExtra(Intent.EXTRA_TEXT, "Hey, my total data usage for today is 10mb");
 
+                startActivity(Intent.createChooser(sharingIntent, "Sharing Options"));
+            }
+        });
 
     }
 

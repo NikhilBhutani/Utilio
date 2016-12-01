@@ -4,6 +4,7 @@ import android.app.usage.UsageStats;
 import android.app.usage.UsageStatsManager;
 import android.content.Context;
 
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
@@ -11,6 +12,7 @@ import android.os.Bundle;
 
 import android.support.annotation.Nullable;
 import android.support.annotation.RequiresApi;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -44,12 +46,12 @@ public class PhoneDetailsFragment extends Fragment {
 
     private static final String TAG = PhoneDetailsFragment.class.getSimpleName();
 
-    UsageStatsManager usageStatsManager;
-    PhoneUsageListAdapter phoneUsageListAdapter;
-    RecyclerView recyclerView;
-    Button button;
-    Spinner spinner;
-
+    private UsageStatsManager usageStatsManager;
+    private PhoneUsageListAdapter phoneUsageListAdapter;
+    private RecyclerView recyclerView;
+    private Button button;
+    private Spinner spinner;
+    private FloatingActionButton share;
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -66,8 +68,9 @@ public class PhoneDetailsFragment extends Fragment {
         phoneUsageListAdapter = new PhoneUsageListAdapter();
         recyclerView = (RecyclerView) view.findViewById(R.id.recyclerViewPhoneusage);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-
         spinner = (Spinner) view.findViewById(R.id.spinner_time_span);
+        share = (FloatingActionButton)view.findViewById(R.id.fab);
+
         return view;
 
     }
@@ -109,6 +112,17 @@ public class PhoneDetailsFragment extends Fragment {
             public void onNothingSelected(AdapterView<?> adapterView) {
 
 
+            }
+        });
+
+        share.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent sharingIntent = new Intent(android.content.Intent.ACTION_SEND);
+                sharingIntent.setType("text/plain");
+                sharingIntent.putExtra(Intent.EXTRA_TEXT, "Hey, my total phone usage for today is 6hrs");
+
+                startActivity(Intent.createChooser(sharingIntent, "Sharing Options"));
             }
         });
 
