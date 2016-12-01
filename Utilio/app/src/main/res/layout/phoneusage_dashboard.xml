@@ -9,7 +9,8 @@
         android:layout_height="60dip"
         android:src="@drawable/mapbox_phone"
         android:tint="@color/dashboard_icons_color"
-        android:layout_gravity="center_horizontal"/>
+        android:layout_gravity="center_horizontal"
+        android:contentDescription="@string/imageview_phoneusage"/>
 
 
     <TextView
@@ -20,7 +21,8 @@
         android:text="@string/minutesused_count_dashboard"
         android:textSize="33sp"
         android:textColor="#757575"
-        android:layout_marginBottom="25dip"/>
+        android:layout_marginBottom="25dip"
+        android:contentDescription="@string/tv_phoneusagecount_cd"/>
 
 
     <View

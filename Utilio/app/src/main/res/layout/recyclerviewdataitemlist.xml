@@ -41,7 +41,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="3dp"
                 android:src="@drawable/downarrow"
-                />
+                android:contentDescription="@string/image_download_icon"/>
 
 
 
@@ -73,7 +73,7 @@
                 android:layout_height="wrap_content"
                 android:src="@drawable/uparrow"
                 android:layout_marginTop="3dp"
-                />
+                android:contentDescription="@string/image_upload_icon"/>
 
 
             <TextView

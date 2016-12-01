@@ -11,7 +11,8 @@
         android:layout_height="60dip"
         android:src="@drawable/fit_steps"
         android:tint="@color/dashboard_icons_color"
-        android:layout_gravity="center_horizontal"/>
+        android:layout_gravity="center_horizontal"
+        android:contentDescription="@string/imageview_steps"/>
 
     <TextView
         android:id="@+id/countedSteps"
@@ -21,7 +22,8 @@
         android:text="@string/step_count"
         android:textSize="33sp"
         android:textColor="#757575"
-        android:layout_marginBottom="25dip"/>
+        android:layout_marginBottom="25dip"
+        android:contentDescription="@string/tv_stepcount_cd"/>
 
     <View
         android:layout_width="match_parent"

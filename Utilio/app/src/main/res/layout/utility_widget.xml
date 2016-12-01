@@ -5,11 +5,12 @@
 
 
     <TextView
+        android:contentDescription="@string/tv_datausagecount_cd"
         android:id="@+id/datausedwidget_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text="Data Used...."
+        android:text="@string/dataused_count_dashboard"
         android:textSize="33sp"
         android:textColor="#757575" />
 

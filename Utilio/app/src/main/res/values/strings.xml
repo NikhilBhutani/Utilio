@@ -25,4 +25,14 @@
     <string name="downloaded_data">Downloaded data</string>
     <string name="uploaded_data">Uploaded data</string>
 
+    //Content Descriptions
+    <string name="imageview_steps">Step</string>
+    <string name="imageview_networkdata">Data</string>
+    <string name="imageview_phoneusage">Phone</string>
+    <string name="tv_datausagecount_cd">Data usage count</string>
+    <string name="tv_stepcount_cd">Step count</string>
+    <string name="tv_phoneusagecount_cd">Phone count</string>
+    <string name="image_download_icon">Download</string>
+    <string name="image_upload_icon">Upload</string>
+    <string name="app_icon_image">App Icon</string>
 </resources>
