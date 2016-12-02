@@ -3,50 +3,26 @@ package com.github.nikhilbhutani.utilio.ui.fragments;
 import android.app.Activity;
 import android.app.usage.UsageStats;
 import android.app.usage.UsageStatsManager;
-import android.content.Context;
 import android.content.Intent;
-import android.content.IntentSender;
 import android.net.TrafficStats;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.github.nikhilbhutani.utilio.R;
-import com.github.nikhilbhutani.utilio.ui.activities.Dashboard;
 import com.github.nikhilbhutani.utilio.ui.activities.DatadetailsActivity;
 import com.github.nikhilbhutani.utilio.ui.activities.PhonedetailsActivity;
-import com.google.android.gms.common.ConnectionResult;
-import com.google.android.gms.common.Scopes;
 import com.google.android.gms.common.api.GoogleApiClient;
-import com.google.android.gms.common.api.ResultCallback;
-import com.google.android.gms.common.api.Scope;
-import com.google.android.gms.common.api.Status;
-import com.google.android.gms.fitness.Fitness;
-import com.google.android.gms.fitness.data.DataPoint;
-import com.google.android.gms.fitness.data.DataSource;
-import com.google.android.gms.fitness.data.DataType;
-import com.google.android.gms.fitness.data.Field;
-import com.google.android.gms.fitness.data.Value;
-import com.google.android.gms.fitness.request.DataSourcesRequest;
-import com.google.android.gms.fitness.request.OnDataPointListener;
-import com.google.android.gms.fitness.request.SensorRequest;
-import com.google.android.gms.fitness.result.DataSourcesResult;
 
 import java.util.Iterator;
 import java.util.List;
-import java.util.concurrent.TimeUnit;
 
-import static android.app.Activity.RESULT_CANCELED;
-import static android.app.Activity.RESULT_OK;
 import static android.content.Context.USAGE_STATS_SERVICE;
 
 /**
@@ -56,18 +32,18 @@ import static android.content.Context.USAGE_STATS_SERVICE;
 public class DashboardFragment extends Fragment {
 
 
+    public static final String LOGTAG = "FitnessSensorApi";
+    private static final int REQUEST_OAUTH = 1;
+    private static final String AUTH_PENDING = "auth_state_pending";
+    public static TextView countedSteps;
+    Activity mActivity = getActivity();
     private Toolbar toolbar;
     private View view;
     private TextView dataUsed;
     private CardView dataCardView;
     private CardView phoneUsageCardView;
-    public static final String LOGTAG = "FitnessSensorApi";
-    private static final int REQUEST_OAUTH = 1;
     private GoogleApiClient googleApiClient = null;
     private boolean authInProgress = false;
-    private static final String AUTH_PENDING = "auth_state_pending";
-    Activity mActivity = getActivity();
-    public static TextView countedSteps;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {

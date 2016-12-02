@@ -11,68 +11,69 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-    <android.support.design.widget.AppBarLayout
-        android:id="@+id/appBarLayout"
-        android:layout_width="match_parent"
-        android:layout_height="200dip"
-        android:fitsSystemWindows="true">
-
-        <android.support.design.widget.CollapsingToolbarLayout
-            android:id="@+id/collpasingToolbar"
+        <android.support.design.widget.AppBarLayout
+            android:id="@+id/appBarLayout"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:fitsSystemWindows="true"
-            app:contentScrim="?attr/colorPrimary"
-            app:expandedTitleMarginEnd="64dp"
-            app:expandedTitleMarginStart="48dp"
-            app:layout_scrollFlags="scroll|exitUntilCollapsed">
+            android:layout_height="200dip"
+            android:fitsSystemWindows="true">
 
-            <ImageView
+            <android.support.design.widget.CollapsingToolbarLayout
+                android:id="@+id/collpasingToolbar"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:fitsSystemWindows="true"
-                android:scaleType="center"
-                android:src="@drawable/data_backdrop_converted_new"
-                app:layout_collapseMode="parallax"
-                android:contentDescription="@string/backdrop_image"/>
+                app:contentScrim="?attr/colorPrimary"
+                app:expandedTitleMarginEnd="64dp"
+                app:expandedTitleMarginStart="48dp"
+                app:layout_scrollFlags="scroll|exitUntilCollapsed">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:contentDescription="@string/backdrop_image"
+                    android:fitsSystemWindows="true"
+                    android:scaleType="center"
+                    android:src="@drawable/data_backdrop_converted_new"
+                    app:layout_collapseMode="parallax" />
 
 
-        </android.support.design.widget.CollapsingToolbarLayout>
+            </android.support.design.widget.CollapsingToolbarLayout>
 
-    </android.support.design.widget.AppBarLayout>
+        </android.support.design.widget.AppBarLayout>
 
-    <LinearLayout
-        android:id="@+id/layoutForSpinner"
-        android:layout_below="@+id/appBarLayout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        >
-        <TextView android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/timespan"
-            />
-
-        <Spinner android:id="@+id/spinner_time_span"
+        <LinearLayout
+            android:id="@+id/layoutForSpinner"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-    </LinearLayout>
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/appBarLayout"
+            android:orientation="horizontal">
 
-    <LinearLayout
-        android:id="@+id/scrollView"
-        android:layout_below="@+id/layoutForSpinner"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:clipToPadding="false"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/timespan" />
 
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/recyclerViewPhoneusage"
+            <Spinner
+                android:id="@+id/spinner_time_span"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/scrollView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:scrollbars="vertical" />
+            android:layout_below="@+id/layoutForSpinner"
+            android:clipToPadding="false"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-    </LinearLayout>
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recyclerViewPhoneusage"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scrollbars="vertical" />
+
+        </LinearLayout>
 
     </RelativeLayout>
 
@@ -81,13 +82,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginRight="20dip"
+        android:contentDescription="@string/share_icon"
         android:src="@drawable/share"
         app:backgroundTint="@color/colorAccent"
         app:elevation="6dp"
         app:fabSize="normal"
         app:layout_anchor="@id/appBarLayout"
-        app:layout_anchorGravity="bottom|right|end"
-        android:contentDescription="@string/share_icon"/>
+        app:layout_anchorGravity="bottom|right|end" />
 
 
 </android.support.design.widget.CoordinatorLayout>

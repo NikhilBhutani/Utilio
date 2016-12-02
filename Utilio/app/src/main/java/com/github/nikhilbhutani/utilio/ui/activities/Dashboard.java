@@ -5,12 +5,7 @@ import android.content.IntentSender;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.design.widget.Snackbar;
-import android.support.v7.widget.CardView;
-import android.support.v7.widget.Toolbar;
 import android.util.Log;
-import android.view.View;
-import android.widget.Toast;
 
 import com.github.nikhilbhutani.utilio.R;
 import com.github.nikhilbhutani.utilio.controller.MyApplication;
@@ -45,15 +40,14 @@ import static android.R.attr.name;
 public class Dashboard extends BaseActivity implements OnDataPointListener, GoogleApiClient.ConnectionCallbacks,
         GoogleApiClient.OnConnectionFailedListener {
 
+    public static final String LOGTAG = "FitnessSensorApi";
     //  CardView cardView;
     private static final String TAG = Dashboard.class.getSimpleName();
-    private static Tracker tracker;
-    public static final String LOGTAG = "FitnessSensorApi";
     private static final int REQUEST_OAUTH = 1;
+    private static final String AUTH_PENDING = "auth_state_pending";
+    private static Tracker tracker;
     private GoogleApiClient googleApiClient = null;
     private boolean authInProgress = false;
-    private static final String AUTH_PENDING = "auth_state_pending";
-
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {

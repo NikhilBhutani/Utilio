@@ -54,17 +54,4 @@ public class WidgetActivity extends AppWidgetProvider {
     }
 
 
-    //Called for the first time an instance  of your widget is added to the home screen
-    @Override
-    public void onEnabled(Context context) {
-        super.onEnabled(context);
-    }
-
-
-    //Called once the last instance of your widget is removed from the home screen.
-    @Override
-    public void onDisabled(Context context) {
-        super.onDisabled(context);
-    }
-
 }

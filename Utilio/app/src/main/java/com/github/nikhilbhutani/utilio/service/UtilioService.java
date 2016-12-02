@@ -6,7 +6,6 @@ import android.content.IntentFilter;
 import android.os.Handler;
 import android.os.IBinder;
 import android.support.annotation.Nullable;
-import android.util.Log;
 import android.widget.Toast;
 
 import com.github.nikhilbhutani.utilio.receiver.UtilioReceiver;
@@ -27,37 +26,38 @@ public class UtilioService extends Service {
     Handler mHandler;
 
     UtilioReceiver utilioReceiver;
+
     @Override
     public void onCreate() {
         super.onCreate();
 
         utilioReceiver = new UtilioReceiver();
-         mTimer = new Timer();
-         mHandler = new Handler();
+        mTimer = new Timer();
+        mHandler = new Handler();
 
-        registerReceiver(utilioReceiver,new IntentFilter(Intent.ACTION_SCREEN_OFF));
+        registerReceiver(utilioReceiver, new IntentFilter(Intent.ACTION_SCREEN_OFF));
 
     }
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
-          if (intent.getBooleanExtra("service",true)) {
-              onPhoneUnlocked();
-              return Service.START_NOT_STICKY;
-          }
+        if (intent.getBooleanExtra("service", true)) {
+            onPhoneUnlocked();
+            return Service.START_NOT_STICKY;
+        }
 
-          if(intent.getBooleanExtra("screenoff", true)){
+        if (intent.getBooleanExtra("screenoff", true)) {
 
-              mTimer.cancel();
+            mTimer.cancel();
 
-              Calendar cal = Calendar.getInstance();
+            Calendar cal = Calendar.getInstance();
 
-              //System.out.println(" ***Service Stopped NB WOhoooo****** "+cal.getTime());
+            //System.out.println(" ***Service Stopped NB WOhoooo****** "+cal.getTime());
 
-              return Service.START_NOT_STICKY;
-          }
+            return Service.START_NOT_STICKY;
+        }
 
-         return onStartCommand(intent, flags, startId);
+        return onStartCommand(intent, flags, startId);
 
     }
 

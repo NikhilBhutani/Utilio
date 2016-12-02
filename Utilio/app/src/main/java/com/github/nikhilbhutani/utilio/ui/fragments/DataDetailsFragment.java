@@ -1,11 +1,8 @@
 package com.github.nikhilbhutani.utilio.ui.fragments;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.database.Cursor;
-import android.net.Uri;
 import android.os.Bundle;
-import android.provider.ContactsContract;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
@@ -14,11 +11,9 @@ import android.support.v4.content.CursorLoader;
 import android.support.v4.content.Loader;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import com.github.nikhilbhutani.utilio.R;
 import com.github.nikhilbhutani.utilio.database.DataContract;
@@ -31,16 +26,14 @@ import com.github.nikhilbhutani.utilio.ui.adapters.AppDataRecyclerViewAdapter;
 public class DataDetailsFragment extends Fragment implements LoaderManager.LoaderCallbacks<Cursor> {
 
     private static final int APPDATA_LOADER = 0;
-
-    private RecyclerView recyclerView;
-    private AppDataRecyclerViewAdapter recyclerViewAdapter;
-
     private static final String[] APPDATA_COLUMNS = {
             DataContract.ApplicationData.TABLE_NAME + "." + DataContract.ApplicationData._ID,
             DataContract.ApplicationData.COLUMN_APPNAME,
             DataContract.ApplicationData.COLUMN_DATA_RECEIVED,
             DataContract.ApplicationData.COLUMN_DATA_TRANSMITTED
     };
+    private RecyclerView recyclerView;
+    private AppDataRecyclerViewAdapter recyclerViewAdapter;
     private FloatingActionButton share;
 
     @Override
@@ -58,7 +51,7 @@ public class DataDetailsFragment extends Fragment implements LoaderManager.Loade
 
         recyclerView = (RecyclerView) view.findViewById(R.id.recyclerViewDataItem);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-        share = (FloatingActionButton)view.findViewById(R.id.fab);
+        share = (FloatingActionButton) view.findViewById(R.id.fab);
 
         return view;
     }

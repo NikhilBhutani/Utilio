@@ -3,13 +3,11 @@ package com.github.nikhilbhutani.utilio.ui.fragments;
 import android.app.usage.UsageStats;
 import android.app.usage.UsageStatsManager;
 import android.content.Context;
-
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
-
 import android.support.annotation.Nullable;
 import android.support.annotation.RequiresApi;
 import android.support.design.widget.FloatingActionButton;
@@ -52,6 +50,7 @@ public class PhoneDetailsFragment extends Fragment {
     private Button button;
     private Spinner spinner;
     private FloatingActionButton share;
+
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -69,7 +68,7 @@ public class PhoneDetailsFragment extends Fragment {
         recyclerView = (RecyclerView) view.findViewById(R.id.recyclerViewPhoneusage);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         spinner = (Spinner) view.findViewById(R.id.spinner_time_span);
-        share = (FloatingActionButton)view.findViewById(R.id.fab);
+        share = (FloatingActionButton) view.findViewById(R.id.fab);
 
         return view;
 
@@ -182,19 +181,6 @@ public class PhoneDetailsFragment extends Fragment {
 
 
     /**
-     * The {@link Comparator} to sort a collection of {@link UsageStats} sorted by the timestamp
-     * last time the app was used in the descendant order.
-     */
-    private static class LastTimeLaunchedComparatorDesc implements Comparator<UsageStats> {
-
-        @Override
-        public int compare(UsageStats left, UsageStats right) {
-
-            return Long.compare(right.getLastTimeUsed(), left.getLastTimeUsed());
-        }
-    }
-
-    /**
      * Enum represents the intervals for {@link android.app.usage.UsageStatsManager} so that
      * values for intervals can be found by a String representation.
      */
@@ -219,6 +205,19 @@ public class PhoneDetailsFragment extends Fragment {
                 }
             }
             return null;
+        }
+    }
+
+    /**
+     * The {@link Comparator} to sort a collection of {@link UsageStats} sorted by the timestamp
+     * last time the app was used in the descendant order.
+     */
+    private static class LastTimeLaunchedComparatorDesc implements Comparator<UsageStats> {
+
+        @Override
+        public int compare(UsageStats left, UsageStats right) {
+
+            return Long.compare(right.getLastTimeUsed(), left.getLastTimeUsed());
         }
     }
 }

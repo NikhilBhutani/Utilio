@@ -3,20 +3,16 @@ package com.github.nikhilbhutani.utilio.receiver;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
-import android.content.UriMatcher;
-import android.util.Log;
-
-import com.github.nikhilbhutani.utilio.service.UtilioService;
 
 /**
  * Created by Nikhil Bhutani on 11/9/2016.
  */
 
-public class UtilioReceiver extends BroadcastReceiver{
+public class UtilioReceiver extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
 
-        if(intent.getAction()!= null){
+        if (intent.getAction() != null) {
 
 
             /*
@@ -41,7 +37,6 @@ public class UtilioReceiver extends BroadcastReceiver{
             */
 
         }
-
 
 
     }

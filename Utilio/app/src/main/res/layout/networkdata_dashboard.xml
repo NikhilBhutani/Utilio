@@ -1,46 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
-
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
 
     <ImageView
         android:layout_width="60dip"
         android:layout_height="60dip"
-        android:src="@drawable/ic_dataused"
-        android:tint="@color/dashboard_icons_color"
         android:layout_gravity="center_horizontal"
-        android:contentDescription="@string/imageview_networkdata"/>
+        android:contentDescription="@string/imageview_networkdata"
+        android:src="@drawable/ic_dataused"
+        android:tint="@color/dashboard_icons_color" />
 
     <TextView
         android:id="@+id/DataUsed"
         android:layout_width="wrap_content"
         android:layout_height="?attr/actionBarSize"
         android:layout_gravity="center"
-        android:text="@string/dataused_count_dashboard"
-        android:textSize="33sp"
-        android:textColor="#757575"
         android:layout_marginBottom="25dip"
-        android:contentDescription="@string/tv_datausagecount_cd"/>
+        android:contentDescription="@string/tv_datausagecount_cd"
+        android:text="@string/dataused_count_dashboard"
+        android:textColor="#757575"
+        android:textSize="33sp" />
 
     <View
         android:layout_width="match_parent"
         android:layout_height="1dip"
         android:layout_gravity="bottom"
-        android:background="#BDBDBD"
         android:layout_marginTop="15dip"
-        />
+        android:background="#BDBDBD" />
 
     <TextView
         android:id="@+id/tv_title_DataUsed"
         android:layout_width="wrap_content"
-        android:layout_height="?attr/actionBarSize"
+        android:layout_height="40dp"
         android:layout_gravity="center|bottom"
         android:gravity="center"
         android:text="@string/data_used_title"
-        android:textSize="18sp"
-        android:textColor="#757575"/>
+        android:textColor="#757575"
+        android:textSize="18sp" />
 
 </LinearLayout>

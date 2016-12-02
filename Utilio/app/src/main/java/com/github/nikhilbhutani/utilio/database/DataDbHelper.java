@@ -11,16 +11,13 @@ import android.database.sqlite.SQLiteOpenHelper;
 public class DataDbHelper extends SQLiteOpenHelper {
 
 
+    public static final String DATABASE_NAME = "utilio.db";
     //If you change the database schema, you must increment the database version.
     private static final int DATABASE_VERSION = 2;
-
-    public static final String DATABASE_NAME = "utilio.db";
 
     public DataDbHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
-
-
 
 
     @Override
@@ -40,7 +37,7 @@ public class DataDbHelper extends SQLiteOpenHelper {
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int oldversion, int newversion) {
 
-             sqLiteDatabase.execSQL("DROP TABLE IF EXISTS "+ DataContract.ApplicationData.TABLE_NAME);
-             onCreate(sqLiteDatabase);
+        sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + DataContract.ApplicationData.TABLE_NAME);
+        onCreate(sqLiteDatabase);
     }
 }
