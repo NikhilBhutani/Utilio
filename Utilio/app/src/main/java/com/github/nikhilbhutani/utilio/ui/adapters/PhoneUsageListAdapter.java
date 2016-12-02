@@ -17,6 +17,9 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 /**
  * Created by Nikhil Bhutani on 11/13/2016.
  */
@@ -59,16 +62,22 @@ public class PhoneUsageListAdapter extends RecyclerView.Adapter<PhoneUsageListAd
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
 
-        private final TextView packageName;
-        private final TextView lastTimeUsed;
-        private final ImageView mAppIcon;
+        @BindView(R.id.package_name)
+        TextView packageName;
+
+        @BindView(R.id.lasttimeused)
+        TextView lastTimeUsed;
+
+        @BindView(R.id.app_icon)
+        ImageView mAppIcon;
 
         public ViewHolder(View itemView) {
             super(itemView);
+            ButterKnife.bind(this, itemView);
+   //         packageName = (TextView) itemView.findViewById(R.id.package_name);
+     //       lastTimeUsed = (TextView) itemView.findViewById(R.id.lasttimeused);
+     //       mAppIcon = (ImageView) itemView.findViewById(R.id.app_icon);
 
-            packageName = (TextView) itemView.findViewById(R.id.package_name);
-            lastTimeUsed = (TextView) itemView.findViewById(R.id.lasttimeused);
-            mAppIcon = (ImageView) itemView.findViewById(R.id.app_icon);
         }
 
     }

@@ -1,5 +1,6 @@
 package com.github.nikhilbhutani.utilio.ui.fragments;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.usage.UsageStats;
 import android.app.usage.UsageStatsManager;
@@ -23,6 +24,9 @@ import com.google.android.gms.common.api.GoogleApiClient;
 import java.util.Iterator;
 import java.util.List;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 import static android.content.Context.USAGE_STATS_SERVICE;
 
 /**
@@ -35,13 +39,26 @@ public class DashboardFragment extends Fragment {
     public static final String LOGTAG = "FitnessSensorApi";
     private static final int REQUEST_OAUTH = 1;
     private static final String AUTH_PENDING = "auth_state_pending";
-    public static TextView countedSteps;
+
     Activity mActivity = getActivity();
-    private Toolbar toolbar;
+
     private View view;
-    private TextView dataUsed;
-    private CardView dataCardView;
-    private CardView phoneUsageCardView;
+
+
+    @BindView(R.id.toolbar)
+    Toolbar toolbar;
+
+    @BindView(R.id.DataUsed)
+    TextView dataUsed;
+
+    @BindView(R.id.cardview1)
+    CardView dataCardView;
+
+    @BindView(R.id.cardview2)
+    CardView phoneUsageCardView;
+
+    public static TextView countedSteps;
+
     private GoogleApiClient googleApiClient = null;
     private boolean authInProgress = false;
 
@@ -57,11 +74,15 @@ public class DashboardFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
         view = inflater.inflate(R.layout.fragment_dashboard, container, false);
+         ButterKnife.bind(this,view);
+        countedSteps = (TextView) view.findViewById(R.id.countedSteps);
+        /*
         toolbar = (Toolbar) view.findViewById(R.id.toolbar);
         dataUsed = (TextView) view.findViewById(R.id.DataUsed);
         dataCardView = (CardView) view.findViewById(R.id.cardview1);
         phoneUsageCardView = (CardView) view.findViewById(R.id.cardview2);
-        countedSteps = (TextView) view.findViewById(R.id.countedSteps);
+
+*/
         return view;
     }
 

@@ -35,6 +35,9 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 /**
  * Created by Nikhil Bhutani on 10/11/2016.
  */
@@ -46,10 +49,15 @@ public class PhoneDetailsFragment extends Fragment {
 
     private UsageStatsManager usageStatsManager;
     private PhoneUsageListAdapter phoneUsageListAdapter;
-    private RecyclerView recyclerView;
-    private Button button;
-    private Spinner spinner;
-    private FloatingActionButton share;
+
+    @BindView(R.id.recyclerViewPhoneusage)
+     RecyclerView recyclerView;
+
+    @BindView(R.id.spinner_time_span)
+     Spinner spinner;
+
+    @BindView(R.id.fab)
+    FloatingActionButton share;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -64,11 +72,13 @@ public class PhoneDetailsFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.fragment_phoneusagedetails, container, false);
+        ButterKnife.bind(this, view);
+
         phoneUsageListAdapter = new PhoneUsageListAdapter();
-        recyclerView = (RecyclerView) view.findViewById(R.id.recyclerViewPhoneusage);
+      //  recyclerView = (RecyclerView) view.findViewById(R.id.recyclerViewPhoneusage);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-        spinner = (Spinner) view.findViewById(R.id.spinner_time_span);
-        share = (FloatingActionButton) view.findViewById(R.id.fab);
+      //  spinner = (Spinner) view.findViewById(R.id.spinner_time_span);
+     //   share = (FloatingActionButton) view.findViewById(R.id.fab);
 
         return view;
 

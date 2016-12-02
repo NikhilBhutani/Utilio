@@ -11,6 +11,9 @@ import android.widget.TextView;
 import com.github.nikhilbhutani.utilio.R;
 import com.github.nikhilbhutani.utilio.database.DataContract;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 /**
  * Created by Nikhil Bhutani on 11/3/2016.
  */
@@ -50,16 +53,24 @@ public class AppDataRecyclerViewAdapter extends RecyclerView.Adapter<AppDataRecy
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
 
-        private final TextView appName;
-        private final TextView dataReceived;
-        private final TextView dataTransmitted;
+         @BindView(R.id.app_name)
+         TextView appName;
+
+         @BindView(R.id.downloaded_data)
+         TextView dataReceived;
+
+         @BindView(R.id.uploaded_data)
+         TextView dataTransmitted;
 
         public MyViewHolder(View itemView) {
             super(itemView);
 
-            appName = (TextView) itemView.findViewById(R.id.app_name);
-            dataReceived = (TextView) itemView.findViewById(R.id.downloaded_data);
-            dataTransmitted = (TextView) itemView.findViewById(R.id.uploaded_data);
+         //   appName = (TextView) itemView.findViewById(R.id.app_name);
+         //   dataReceived = (TextView) itemView.findViewById(R.id.downloaded_data);
+          //  dataTransmitted = (TextView) itemView.findViewById(R.id.uploaded_data);
+
+
+            ButterKnife.bind(this, itemView);
         }
     }
 }
